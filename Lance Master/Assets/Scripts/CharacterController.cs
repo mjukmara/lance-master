@@ -9,6 +9,7 @@ public class CharacterController : MonoBehaviour
 	public float drag = 40f;
 	public float moveAcceleration = 4f;
 	public float dashForce = 5f;
+	public float dashRate = 3f;
 
 	public delegate void OnDashEventHandler();
 	public event OnDashEventHandler OnDashEvent;
@@ -17,7 +18,7 @@ public class CharacterController : MonoBehaviour
 	private Vector2 moveInput = Vector2.zero;
 	private Vector2 moveDirection = Vector2.zero;
 	private bool dashInput = false;
-
+	private float dashCooldown = 0f;
 
 	private void Start()
 	{
@@ -31,6 +32,8 @@ public class CharacterController : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+		dashCooldown = Mathf.Max(0, dashCooldown - Time.deltaTime);
+
 		HandleMovement();
 		HandleDashing();
 	}
@@ -45,8 +48,9 @@ public class CharacterController : MonoBehaviour
 
 	private void HandleDashing()
 	{
-		if (dashInput && moveDirection.magnitude != 0)
+		if (dashCooldown == 0f && dashInput && moveDirection.magnitude != 0)
 		{
+			dashCooldown = 1f / dashRate;
 			rb.AddForce(moveDirection * dashForce * 1000f);
 			OnDashEvent?.Invoke();
 		}

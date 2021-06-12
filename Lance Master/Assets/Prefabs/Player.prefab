@@ -5125,6 +5125,7 @@ MonoBehaviour:
   drag: 40
   moveAcceleration: 2
   dashForce: 5
+  dashRate: 3
 --- !u!114 &-5382906149817908499
 MonoBehaviour:
   m_ObjectHideFlags: 0
