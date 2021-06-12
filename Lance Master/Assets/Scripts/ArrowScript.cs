@@ -32,8 +32,8 @@ public class ArrowScript : MonoBehaviour
 		if (timer < delay)
 		{
 			timer += Time.deltaTime;
-			float ratio = timer / delay;
-			tr.position -= transform.right * ratio * Time.deltaTime * 10;
+			//float ratio = timer / delay;
+			//tr.position -= transform.right * ratio * Time.deltaTime * 10;
 			return;
 		}
 
