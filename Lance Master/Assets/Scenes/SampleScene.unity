@@ -180,18 +180,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 150429112, guid: f31978161c09378488555778deb77fce, type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1707225996722038763, guid: f31978161c09378488555778deb77fce, type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3351476973926793858, guid: f31978161c09378488555778deb77fce, type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 3351476975180991137, guid: f31978161c09378488555778deb77fce, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.41
@@ -240,9 +228,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3351476975180991140, guid: f31978161c09378488555778deb77fce, type: 3}
-      propertyPath: m_Layer
-      value: 12
+    - target: {fileID: 4866889531786242274, guid: f31978161c09378488555778deb77fce, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f31978161c09378488555778deb77fce, type: 3}
