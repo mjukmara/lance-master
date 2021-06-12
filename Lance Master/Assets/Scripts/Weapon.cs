@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour {
     public float fireRate = 1f;
-    
+    public float reloadRate = 0.2f;
+    public int magazineSize = 5;
+    public Queue<GameObject> magazineProjectiles;
+
     private bool trigger = false;
-    private float fireCooldown = 0f;
+    private bool reloading = false;
+    public float fireCooldown = 0f;
+    public float reloadCooldown = 0f;
+    public GameObject projectilePrefab;
 
     private void Update() {
-        fireCooldown = Mathf.Min(0, fireCooldown - Time.deltaTime);
+        fireCooldown = Mathf.Max(0, fireCooldown - Time.deltaTime);
+        reloadCooldown = Mathf.Max(0, reloadCooldown - Time.deltaTime);
 
-        if (IsTriggerDown() && !IsCooldown()) {
-            
+        if (IsTriggerDown() && !IsCooldown() && !IsMagazineEmpty()) {
+            Fire();
         }
     }
 
@@ -21,8 +28,18 @@ public class Weapon : MonoBehaviour {
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
-    public void SetTrigger(bool trigger) {
-        this.trigger = trigger;
+    private void Fire() {
+        if (IsMagazineEmpty()) return;
+
+        SetCooldown(1f / fireRate);
+
+        if (projectilePrefab) {
+            GameObject projectile = Instantiate(PopProjectilePrefabFromMagazine(), transform.position, transform.rotation);
+        }
+    }
+
+    public void SetFireTrigger(bool pressed) {
+        trigger = pressed;
     }
 
     public bool IsTriggerDown() {
@@ -34,5 +51,17 @@ public class Weapon : MonoBehaviour {
 
     public bool IsCooldown() {
         return fireCooldown > 0;
+    }
+
+    public void SetCooldown(float seconds) {
+        fireCooldown = seconds;
+    }
+
+    public bool IsMagazineEmpty() {
+        return magazineProjectiles.Count == 0;
+    }
+
+    public GameObject PopProjectilePrefabFromMagazine() {
+        return magazineProjectiles.Dequeue();
     }
 }

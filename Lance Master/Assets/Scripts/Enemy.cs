@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
         targetDirection = (target.position - transform.position).normalized;
         if (weapon) {
             weapon.Aim(targetDirection);
+            weapon.SetFireTrigger(true);
         }
     }
 
