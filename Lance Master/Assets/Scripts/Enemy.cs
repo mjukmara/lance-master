@@ -5,17 +5,21 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Enemy : MonoBehaviour
 {
+    public Weapon weaponPrefab;
     public float spass = 0.6f;
     public float deadZone = 0.1f;
     private CharacterController cc;
     private Transform target = null;
     private Vector2 targetDirection = Vector2.zero;
     private Vector2 perlinSeed;
+    private Weapon weapon;
 
     private void Awake() {
         cc = GetComponent<CharacterController>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         perlinSeed = new Vector2(Random.Range(0, 10000), Random.Range(0, 10000));
+        weapon = Instantiate(weaponPrefab, transform.position, Quaternion.identity);
+        weapon.transform.SetParent(transform);
     }
 
     private void Update() {
@@ -30,6 +34,9 @@ public class Enemy : MonoBehaviour
 
     private void UpdateTargeting() {
         targetDirection = (target.position - transform.position).normalized;
+        if (weapon) {
+            weapon.Aim(targetDirection);
+        }
     }
 
     private void UpdateMoveDirection() {
