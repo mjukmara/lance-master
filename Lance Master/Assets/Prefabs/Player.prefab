@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 40
-  moveAcceleration: 4
+  moveAcceleration: 2
   dashForce: 5
 --- !u!114 &-5382906149817908499
 MonoBehaviour:
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveAcceleration: 4
-  moveMaxSpeed: 1.5
+  moveMaxSpeed: 0.5
   dashCooldown: 1
   dashMaxLength: 5
   dashForce: 5
