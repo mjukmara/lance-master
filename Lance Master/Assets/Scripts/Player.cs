@@ -30,7 +30,13 @@ public class Player : MonoBehaviour
     private void Update() {
         mouseInput = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         moveInputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)) {
+
+        Debug.Log("L1: " + Input.GetAxisRaw("L1") + " - " + Input.GetButtonDown("L1"));
+        Debug.Log("R1: " + Input.GetAxisRaw("R1") + " - " + Input.GetButtonDown("R1"));
+        //Debug.Log("L2: " + Input.GetAxisRaw("L2"));
+        //Debug.Log("R2: " + Input.GetAxisRaw("R2"));
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("Fire1")) {
             dashInput = true;
         }
 
