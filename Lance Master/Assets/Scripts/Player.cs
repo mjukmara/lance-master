@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
 		if (dashInvinsibiltyCooldown == 0)
 		{
 			capsuleCollider.enabled = true;
+			animator.SetBool("Dashing", false);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("Fire1") || Input.GetButtonDown("Right Bumper"))
