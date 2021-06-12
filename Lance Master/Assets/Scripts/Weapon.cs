@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour {
     public float fireRate = 1f;
     public float reloadRate = 0.2f;
     public int magazineSize = 5;
+    public float inaccuracy = 5f;
     public Magazine magazine;
 
     private bool trigger = false;
@@ -44,7 +45,9 @@ public class Weapon : MonoBehaviour {
         SetCooldown(1f / fireRate);
 
         GameObject projectilePrefab = magazine.PopProjectile();
-        GameObject projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        Quaternion projectileRotation = transform.rotation;
+        projectileRotation *= Quaternion.Euler(0, 0, Random.Range(-inaccuracy, inaccuracy));
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, projectileRotation);
         Debug.Log("Fire");
     }
 

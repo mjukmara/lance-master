@@ -8,21 +8,29 @@ public class Enemy : MonoBehaviour
     public Weapon weaponPrefab;
     public float spass = 0.6f;
     public float deadZone = 0.1f;
+    public float chaseFactor = 0.5f;
     private CharacterController cc;
     private Transform target = null;
+    private float targetDistance = 0f;
     private Vector2 targetDirection = Vector2.zero;
     private Vector2 perlinSeed;
     private Weapon weapon;
+    private float waitOnSpawnCooldown = 1f;
 
     private void Awake() {
         cc = GetComponent<CharacterController>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         perlinSeed = new Vector2(Random.Range(0, 10000), Random.Range(0, 10000));
-        weapon = Instantiate(weaponPrefab, transform.position, Quaternion.identity);
-        weapon.transform.SetParent(transform);
+        if (weaponPrefab) {
+            weapon = Instantiate(weaponPrefab, transform.position, Quaternion.identity);
+            weapon.transform.SetParent(transform);
+        }
     }
 
     private void Update() {
+        waitOnSpawnCooldown = Mathf.Max(0, waitOnSpawnCooldown - Time.deltaTime);
+        if (waitOnSpawnCooldown > 0) return;
+
         UpdateMoveDirection();
         UpdateTargeting();
         Debug.DrawLine(transform.position, transform.position + new Vector3(targetDirection.x, targetDirection.y), Color.red);
@@ -33,6 +41,7 @@ public class Enemy : MonoBehaviour
     }
 
     private void UpdateTargeting() {
+        targetDistance = (target.position - transform.position).magnitude;
         targetDirection = (target.position - transform.position).normalized;
         if (weapon) {
             weapon.Aim(targetDirection);
@@ -41,22 +50,15 @@ public class Enemy : MonoBehaviour
     }
 
     private void UpdateMoveDirection() {
-        float x = Mathf.PerlinNoise(perlinSeed.x + Time.time * spass, 0f);
-        float y = Mathf.PerlinNoise(0f, perlinSeed.x + Time.time * spass);
+        float x = Mathf.PerlinNoise(perlinSeed.x + Time.time * spass, 0f) * 2f - 1f;
+        float y = Mathf.PerlinNoise(0f, perlinSeed.x + Time.time * spass) * 2f - 1f;
 
-        if (x > 0.5f + deadZone) x = 1f;
-        else if (x < 0.5f - deadZone) x = 0f;
-        else x = 0.5f;
+        Vector2 moveDir = new Vector2(x, y);
 
-        if (y > 0.5f + deadZone) y = 1f;
-        else if (y < 0.5f - deadZone) y = 0f;
-        else y = 0.5f;
+        moveDir += targetDirection * chaseFactor;
+        
+        if (moveDir.magnitude < deadZone) moveDir = Vector2.zero;
 
-        x -= 0.5f;
-        y -= 0.5f;
-        x *= 2f;
-        y *= 2f;
-
-        cc.SetMoveInput(new Vector2(x, y));
+        cc.SetMoveInput(moveDir);
     }
 }

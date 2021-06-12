@@ -129,9 +129,10 @@ MonoBehaviour:
   fireRate: 1
   reloadRate: 1
   magazineSize: 1
+  inaccuracy: 2
   magazine:
     projectilePrefabs:
-    - {fileID: 5428713666385280768, guid: d5878372e938e9943b42c193e0c62556, type: 3}
+    - {fileID: 3494102679487885185, guid: 993215c89caeb074390d84a19aa14148, type: 3}
     at: 0
   fireCooldown: 0
   reloadCooldown: 0

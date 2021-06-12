@@ -1,0 +1,341 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6638592288073878408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6638592288073878415}
+  - component: {fileID: 6638592288073878414}
+  - component: {fileID: 6638592288073878409}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6638592288073878415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6638592288073878408}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5774856373331995594}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &6638592288073878414
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6638592288073878408}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &6638592288073878409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6638592288073878408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a352269f752c42445904aba935f928cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgm: []
+  sfx:
+  - {fileID: 6417669489138936924}
+--- !u!1 &7938829960600024760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5774856373331995594}
+  - component: {fileID: 2427359517911484175}
+  - component: {fileID: 6417669489138936924}
+  m_Layer: 0
+  m_Name: sfx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5774856373331995594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7938829960600024760}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6638592288073878415}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2427359517911484175
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7938829960600024760}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &6417669489138936924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7938829960600024760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af5e757e66fd2474fb7f05da0ee34217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - soundName: dash1
+    clip: {fileID: 8300000, guid: f4c9d1fcb7029854bad0de4222772dc4, type: 3}
+  - soundName: dash2
+    clip: {fileID: 8300000, guid: 22ae94b8f0907174284fd705a82e5e14, type: 3}
+  - soundName: dash3
+    clip: {fileID: 8300000, guid: 310a6bcde0fe2674fb15985d68adb741, type: 3}
+  - soundName: dash4
+    clip: {fileID: 8300000, guid: 183f37d5fb3ec47488d4f5a17b0a90bb, type: 3}
+  - soundName: dash5
+    clip: {fileID: 8300000, guid: 0d7482ea9f513f840aab8a90b62ce223, type: 3}
+  - soundName: ow1
+    clip: {fileID: 8300000, guid: 70132cff368e3f244bd4cb0b15dae5cb, type: 3}
+  - soundName: ow2
+    clip: {fileID: 8300000, guid: 4efbd54156af8494cb71901a4aa59de2, type: 3}
+  - soundName: ow3
+    clip: {fileID: 8300000, guid: 74f45d482d960394ab72a9f1ad890689, type: 3}
+  - soundName: ow4
+    clip: {fileID: 8300000, guid: 278f6169f67dd684999cca5d3e24270b, type: 3}
+  - soundName: ow5
+    clip: {fileID: 8300000, guid: e453cdd7abbe0c747b4d4d024a8dd28e, type: 3}
+  - soundName: ow6
+    clip: {fileID: 8300000, guid: 4b8efc1ff5af33f4ab7b08e0f915ddff, type: 3}
+  - soundName: dash-impact1
+    clip: {fileID: 8300000, guid: 1037b8978a9031c4ea2711a88db359c2, type: 3}
+  - soundName: dash-impact2
+    clip: {fileID: 8300000, guid: 83738b5732dc68d4a8116105def48133, type: 3}
+  - soundName: dash-impact3
+    clip: {fileID: 8300000, guid: 3530f3691e25f684894d3c9ae122da28, type: 3}
+  - soundName: dash-impact4
+    clip: {fileID: 8300000, guid: ec085a10ac92a0e41b3d23dbaf55128b, type: 3}
+  - soundName: dash-impact5
+    clip: {fileID: 8300000, guid: 8f251a340f7c243479f2ab1c9715e799, type: 3}
+  - soundName: dash-impact6
+    clip: {fileID: 8300000, guid: cd35da44118509345946f2401673b358, type: 3}
+  - soundName: dash-impact7
+    clip: {fileID: 8300000, guid: 3df04bec05d23a04d88b04c62a5e29a9, type: 3}
+  - soundName: walking1
+    clip: {fileID: 8300000, guid: 8dea2e338beeaa0418a915b8e0506276, type: 3}
+  - soundName: walking2
+    clip: {fileID: 8300000, guid: 4408d7201b87eee4c9e47784ec2037f3, type: 3}
+  - soundName: walking3
+    clip: {fileID: 8300000, guid: 0e8afa74f4a53d447b4841b20056985c, type: 3}
+  - soundName: walking4
+    clip: {fileID: 8300000, guid: f8c4264f0b3602948a6fc9b3cfc4dabb, type: 3}
+  - soundName: walking5
+    clip: {fileID: 8300000, guid: 4462e9cf55a60bc41955693677e17305, type: 3}
+  - soundName: walking6
+    clip: {fileID: 8300000, guid: 68f01b6ad6cbac642b61b73500561950, type: 3}
+  - soundName: impact1
+    clip: {fileID: 8300000, guid: c802fb1c4c381b347a75475bbf656a82, type: 3}
+  - soundName: door-open1
+    clip: {fileID: 8300000, guid: 950aeddad13708941afd4d2a465b5eb4, type: 3}
+  - soundName: crunch1
+    clip: {fileID: 8300000, guid: 766130b19866aef449909f5683ddd42e, type: 3}
