@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ArrowScript : MonoBehaviour
 {
+	public int damage = 10;
 	public float speed;
 	public float delay;
 	public float aliveTime;
@@ -21,6 +22,7 @@ public class ArrowScript : MonoBehaviour
 	private Vector2 playerPos;
 	private LineRenderer lr;
 	private GameObject player;
+	private Player playerScript;
 
 	void Awake()
 	{
@@ -29,6 +31,7 @@ public class ArrowScript : MonoBehaviour
 		boxCollider2D = GetComponent<BoxCollider2D>();
 		lr = gameObject.transform.Find("ArrowSprite").Find("Chain").GetComponent<LineRenderer>();
 		player = GameObject.FindGameObjectWithTag("Player");
+		playerScript = player.GetComponent<Player>();
 
 		boxCollider2D.enabled = false;
 		Destroy(gameObject, aliveTime);
@@ -36,6 +39,8 @@ public class ArrowScript : MonoBehaviour
 
 	void Update()
 	{
+		if (!player) return;
+
 		timer += Time.deltaTime;
 		if (timer < delay) { return; }
 
@@ -68,6 +73,9 @@ public class ArrowScript : MonoBehaviour
 		{
 			Instantiate(PE_ArrowHit, tr.position, Quaternion.identity);
 			Destroy(gameObject, 0);
+			playerScript.Hit(damage);
+
+			AudioManager.Instance.PlaySfx("crunch1");
 		}
 	}
 }

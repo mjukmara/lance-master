@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+	public int damage = 10;
 	public float speed;
 	public float aliveTime = 2.0f;
 
@@ -26,6 +27,11 @@ public class BulletScript : MonoBehaviour
 		{
 			Instantiate(PE_RedLaserHit, tr.position, Quaternion.identity);
 			Destroy(gameObject, 0);
+
+			Player playerScript = other.gameObject.GetComponent<Player>();
+			playerScript.Hit(damage);
+
+			AudioManager.Instance.PlaySfx("impact1");
 		}
 	}
 }
