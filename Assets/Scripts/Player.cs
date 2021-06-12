@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     private void Update() {
         mouseInput = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         moveInputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)) {
             dashInput = true;
         }
     }
