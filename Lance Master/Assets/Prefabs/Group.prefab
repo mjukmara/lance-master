@@ -579,6 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: []
+  spawnEffect: {fileID: 3419772442064044301, guid: 3791745608696d6448e15f524a01f5fe, type: 3}
 --- !u!61 &4328969070686510491
 BoxCollider2D:
   m_ObjectHideFlags: 0
