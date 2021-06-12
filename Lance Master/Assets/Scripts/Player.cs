@@ -19,11 +19,12 @@ public class Player : MonoBehaviour
 
 	private void Start()
 	{
-        cc = GetComponent<CharacterController>();
+		cc = GetComponent<CharacterController>();
 		tr = GetComponent<Transform>();
 	}
 
-	private void Update() {
+	private void Update()
+	{
 		cc.SetMoveInput(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
 
 		if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("Fire1") || Input.GetButtonDown("Right Bumper"))

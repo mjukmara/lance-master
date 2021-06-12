@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 3351476975180991138}
   - component: {fileID: 3996997459685972306}
   - component: {fileID: -5382906149817908499}
+  - component: {fileID: 4907303106152107246}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -205,11 +206,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a70d176b412e75f46bf9b7aef4d34dc7, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3996997459685972306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drag: 40
   moveAcceleration: 4
+  dashForce: 5
 --- !u!114 &-5382906149817908499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,3 +247,19 @@ MonoBehaviour:
   dashDamageDuration: 1
   dashInvinsibleDuration: 1
   arrow: {fileID: 5428713666385280768, guid: d5878372e938e9943b42c193e0c62556, type: 3}
+--- !u!70 &4907303106152107246
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3351476975180991140}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: a70d176b412e75f46bf9b7aef4d34dc7, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.077642806, y: 0.30482006}
+  m_Size: {x: 0.5977725, y: 1.1495342}
+  m_Direction: 0
