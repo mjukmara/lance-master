@@ -84,6 +84,7 @@ public class Player : MonoBehaviour
 			string[] soundNames = new string[] { "player-rip1", "player-rip2", "player-rip3", "player-rip4", "player-rip5", "player-rip6", "player-rip7", "player-rip8", "player-rip9" };
 			AudioManager.Instance.PlaySfx(soundNames[Random.Range(0, soundNames.Length)]);
 			Destroy(gameObject);
+			Game.Instance.TransitionTo(0);
 		} else {
 			string[] soundNames = new string[] { "ow1", "ow2", "ow3", "ow4", "ow5", "ow6" };
 			AudioManager.Instance.PlaySfx(soundNames[Random.Range(0, soundNames.Length)]);
