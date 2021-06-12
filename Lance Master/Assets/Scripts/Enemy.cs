@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     private Vector2 targetDirection = Vector2.zero;
     private Vector2 perlinSeed;
     private Weapon weapon;
+    private float waitOnSpawnCooldown = 1f;
 
     private void Awake() {
         cc = GetComponent<CharacterController>();
@@ -27,6 +28,9 @@ public class Enemy : MonoBehaviour
     }
 
     private void Update() {
+        waitOnSpawnCooldown = Mathf.Max(0, waitOnSpawnCooldown - Time.deltaTime);
+        if (waitOnSpawnCooldown > 0) return;
+
         UpdateMoveDirection();
         UpdateTargeting();
         Debug.DrawLine(transform.position, transform.position + new Vector3(targetDirection.x, targetDirection.y), Color.red);
