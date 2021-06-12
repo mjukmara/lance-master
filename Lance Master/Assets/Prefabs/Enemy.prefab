@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7b6ceedb4509a40ad83d9e91cd1200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 7248781906722084552, guid: 5cfec9a9643d29a42aa31b0454fa5a78, type: 3}
+  weaponPrefab: {fileID: 7248781906722084552, guid: 4481f98b71f8b464bbf54043b76abefa, type: 3}
   spass: 0.6
   deadZone: 0.1
 --- !u!1 &7881288478455225657
