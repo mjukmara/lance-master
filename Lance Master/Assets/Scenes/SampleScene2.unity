@@ -246,14 +246,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5382906149817908499, guid: f31978161c09378488555778deb77fce, type: 3}
-      propertyPath: drag
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: -5382906149817908499, guid: f31978161c09378488555778deb77fce, type: 3}
-      propertyPath: moveAcceleration
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 3351476975180991137, guid: f31978161c09378488555778deb77fce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
