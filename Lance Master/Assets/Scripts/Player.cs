@@ -15,7 +15,9 @@ public class Player : MonoBehaviour
     public float dashInvinsibleDuration = 1f;
     private Rigidbody2D rb;
     private Vector2 moveInputVector = Vector2.zero;
+    private Vector2 moveDirection = Vector2.zero;
     private Vector2 dashInputVector = Vector2.zero;
+    private Vector2 dashDirection = Vector2.zero;
     private Vector2 mouseInput = Vector2.zero;
     private bool dashInput = false;
     private float dashDamageCooldown = 0f;
@@ -29,17 +31,12 @@ public class Player : MonoBehaviour
 
     private void Update() {
         mouseInput = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        moveInputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         dashInputVector = new Vector2(Input.GetAxisRaw("Horizontal2"), Input.GetAxisRaw("Vertical2"));
 
-        //Debug.Log("Horizontal: " + Input.GetAxisRaw("Horizontal") + " - " + Input.GetButtonDown("Horizontal"));
-        //Debug.Log("Vertical: " + Input.GetAxisRaw("Vertical") + " - " + Input.GetButtonDown("Vertical"));
-        //Debug.Log("Horizontal2: " + Input.GetAxisRaw("Horizontal2") + " - " + Input.GetButtonDown("Horizontal2"));
-        //Debug.Log("Vertical2: " + Input.GetAxisRaw("Vertical2") + " - " + Input.GetButtonDown("Vertical2"));
-        //Debug.Log("Left Bumper: " + Input.GetAxisRaw("Left Bumper") + " - " + Input.GetButton("Left Bumper"));
-        //Debug.Log("Right Bumper: " + Input.GetAxisRaw("Right Bumper") + " - " + Input.GetButton("Right Bumper"));
-        //Debug.Log("L2: " + Input.GetAxisRaw("L2"));
-        //Debug.Log("R2: " + Input.GetAxisRaw("R2"));
+        UpdateMoveDirection();
+
+        Debug.DrawLine(transform.position, transform.position + new Vector3(moveDirection.x, moveDirection.y), Color.blue);
+        Debug.DrawLine(transform.position, transform.position + new Vector3(dashDirection.x, dashDirection.y), Color.red);
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("Fire1") || Input.GetButtonDown("Right Bumper")) {
             dashInput = true;
@@ -55,22 +52,24 @@ public class Player : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        HandleMove();
-        HandleDash();
+        Move();
+
+        if (dashInput) {
+            Dash();
+            dashInput = false;
+        }
     }
 
-    private void HandleMove() {
+    private void Move() {
         Vector2 velocity = rb.velocity;
         velocity += moveInputVector * moveAcceleration;
         rb.velocity = velocity;
         rb.drag = drag;
     }
 
-    private void HandleDash() {
+    private void Dash() {
         if (dashInput) {
-            // Vector2 dashDirection = GetDashDirectionByMouse();
-            Vector2 dashDirection = GetDashDirectionByJoystick();
-            Vector2 force = dashDirection * dashForce * 1000f;
+            Vector2 force = moveDirection * dashForce * 1000f;
             rb.AddForce(force);
             dashDamageCooldown = dashDamageDuration;
             dashInvinsibleCooldown = dashInvinsibleDuration;
@@ -78,14 +77,19 @@ public class Player : MonoBehaviour
         dashInput = false;
     }
 
-    private Vector2 GetDashDirectionByMouse() {
+    private Vector2 GetDirectionByMouse() {
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 dir = Input.mousePosition - pos;
         dir.z = 0;
         return new Vector2(dir.x, dir.y).normalized;
     }
 
-    private Vector2 GetDashDirectionByJoystick() {
-        return dashInputVector.normalized;
+    private Vector2 GetDirectionByJoystick() {
+        return moveDirection.normalized;
+    }
+
+    private void UpdateMoveDirection() {
+        moveInputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        moveDirection = moveInputVector.normalized;
     }
 }
