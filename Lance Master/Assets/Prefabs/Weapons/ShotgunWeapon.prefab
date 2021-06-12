@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 9041167319513455534}
   - component: {fileID: 7248781906722084552}
   m_Layer: 0
-  m_Name: BurstWeapon
+  m_Name: ShotgunWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,17 +126,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35ca5be82024a444952fb81bfde76a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 4
-  reloadRate: 0.5
-  magazineSize: 5
-  inaccuracy: 6
+  fireRate: 1
+  reloadRate: 0.2
+  magazineSize: 1
+  inaccuracy: 0
   magazine:
     projectilePrefabs:
-    - {fileID: 3494102679487885185, guid: d766db19edf61814687150d4bf5e8827, type: 3}
-    - {fileID: 3494102679487885185, guid: d766db19edf61814687150d4bf5e8827, type: 3}
-    - {fileID: 3494102679487885185, guid: d766db19edf61814687150d4bf5e8827, type: 3}
-    - {fileID: 3494102679487885185, guid: d766db19edf61814687150d4bf5e8827, type: 3}
-    - {fileID: 3494102679487885185, guid: d766db19edf61814687150d4bf5e8827, type: 3}
+    - {fileID: 6497731254651586851, guid: a450b846d790b4b499d4b98d9e1e7d86, type: 3}
     at: 0
   fireCooldown: 0
   reloadCooldown: 0

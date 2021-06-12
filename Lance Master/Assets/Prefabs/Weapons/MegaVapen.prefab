@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 9041167319513455534}
   - component: {fileID: 7248781906722084552}
   m_Layer: 0
-  m_Name: BurstWeapon
+  m_Name: MegaVapen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,17 +126,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35ca5be82024a444952fb81bfde76a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 4
-  reloadRate: 0.5
-  magazineSize: 5
-  inaccuracy: 6
+  fireRate: 0.33333334
+  reloadRate: 0.33333334
+  magazineSize: 0
+  inaccuracy: 0
   magazine:
     projectilePrefabs:
-    - {fileID: 3494102679487885185, guid: d766db19edf61814687150d4bf5e8827, type: 3}
-    - {fileID: 3494102679487885185, guid: d766db19edf61814687150d4bf5e8827, type: 3}
-    - {fileID: 3494102679487885185, guid: d766db19edf61814687150d4bf5e8827, type: 3}
-    - {fileID: 3494102679487885185, guid: d766db19edf61814687150d4bf5e8827, type: 3}
-    - {fileID: 3494102679487885185, guid: d766db19edf61814687150d4bf5e8827, type: 3}
+    - {fileID: 9201047980340397888, guid: 7b8c1ea675a02c746b85a8dd842883df, type: 3}
+    - {fileID: 3253360429453522499, guid: 68063729d68cfba4194ff27472ea319d, type: 3}
+    - {fileID: 1063573116816302662, guid: 6c447f034b68d204ea8062d3e76f8491, type: 3}
+    - {fileID: 5262603485416030545, guid: a1d7fa0cb0ab45f45bf5142de355badf, type: 3}
     at: 0
   fireCooldown: 0
   reloadCooldown: 0
