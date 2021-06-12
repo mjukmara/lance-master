@@ -152,4 +152,5 @@ MonoBehaviour:
   moveMaxSpeed: 6
   dashCooldown: 1
   dashMaxLength: 5
+  dashForce: 5
   drag: 30
