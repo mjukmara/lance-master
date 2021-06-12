@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b33ef822f92f144ebbaeedb812f973b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  speed: 10
   delay: 0.2
   aliveTime: 5
   PE_ArrowHit: {fileID: 388459177441994925, guid: 964e83d7df8ddc1499ee49b06f69d724, type: 3}
