@@ -5,6 +5,7 @@ using UnityEngine;
 public class GroupManager : MonoBehaviour
 {
 	public List<GameObject> enemies;
+	public GameObject spawnEffect;
 	private List<GameObject> spawnedEnemies;
 	private bool triggered = false;
 	private bool spawned = false;
@@ -22,6 +23,7 @@ public class GroupManager : MonoBehaviour
 				if (i > gameObject.transform.Find("spawnPoints").childCount - 1) { continue; }
 				Vector3 spawnPoint = gameObject.transform.Find("spawnPoints").GetChild(i).position;
 				spawnedEnemies.Add((GameObject)Instantiate(enemies[i], spawnPoint, Quaternion.identity));
+				Instantiate(spawnEffect, spawnPoint, Quaternion.identity);
 			}
 
 			spawned = true;
