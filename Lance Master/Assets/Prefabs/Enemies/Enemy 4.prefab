@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5372044071003288131}
   - component: {fileID: 7966290567250394576}
   m_Layer: 11
-  m_Name: Enemy 2
+  m_Name: Enemy 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 40
-  moveAcceleration: 2
+  moveAcceleration: 3
   dashForce: 5
 --- !u!114 &7966290567250394576
 MonoBehaviour:
@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7b6ceedb4509a40ad83d9e91cd1200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 7248781906722084552, guid: 5cfec9a9643d29a42aa31b0454fa5a78, type: 3}
-  spass: 1
+  weaponPrefab: {fileID: 0}
+  spass: 2
   deadZone: 0.4
-  chaseFactor: 0.4
+  chaseFactor: 0.6
 --- !u!1 &7881288478455225657
 GameObject:
   m_ObjectHideFlags: 0

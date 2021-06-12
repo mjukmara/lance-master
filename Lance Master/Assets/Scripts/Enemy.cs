@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public float chaseFactor = 0.5f;
     private CharacterController cc;
     private Transform target = null;
+    private float targetDistance = 0f;
     private Vector2 targetDirection = Vector2.zero;
     private Vector2 perlinSeed;
     private Weapon weapon;
@@ -19,8 +20,10 @@ public class Enemy : MonoBehaviour
         cc = GetComponent<CharacterController>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         perlinSeed = new Vector2(Random.Range(0, 10000), Random.Range(0, 10000));
-        weapon = Instantiate(weaponPrefab, transform.position, Quaternion.identity);
-        weapon.transform.SetParent(transform);
+        if (weaponPrefab) {
+            weapon = Instantiate(weaponPrefab, transform.position, Quaternion.identity);
+            weapon.transform.SetParent(transform);
+        }
     }
 
     private void Update() {
@@ -34,6 +37,7 @@ public class Enemy : MonoBehaviour
     }
 
     private void UpdateTargeting() {
+        targetDistance = (target.position - transform.position).magnitude;
         targetDirection = (target.position - transform.position).normalized;
         if (weapon) {
             weapon.Aim(targetDirection);
@@ -42,25 +46,14 @@ public class Enemy : MonoBehaviour
     }
 
     private void UpdateMoveDirection() {
-        float x = Mathf.PerlinNoise(perlinSeed.x + Time.time * spass, 0f);
-        float y = Mathf.PerlinNoise(0f, perlinSeed.x + Time.time * spass);
+        float x = Mathf.PerlinNoise(perlinSeed.x + Time.time * spass, 0f) * 2f - 1f;
+        float y = Mathf.PerlinNoise(0f, perlinSeed.x + Time.time * spass) * 2f - 1f;
 
         Vector2 moveDir = new Vector2(x, y);
 
         moveDir += targetDirection * chaseFactor;
-
-        if (moveDir.x > 0.5f + deadZone) moveDir.x = 1f;
-        else if (moveDir.x < 0.5f - deadZone) moveDir.x = 0f;
-        else moveDir.x = 0.5f;
-
-        if (moveDir.y > 0.5f + deadZone) moveDir.y = 1f;
-        else if (moveDir.y < 0.5f - deadZone) moveDir.y = 0f;
-        else moveDir.y = 0.5f;
-
-        moveDir.x -= 0.5f;
-        moveDir.y -= 0.5f;
-        moveDir.x *= 2f;
-        moveDir.y *= 2f;
+        
+        if (moveDir.magnitude < deadZone) moveDir = Vector2.zero;
 
         cc.SetMoveInput(moveDir);
     }
