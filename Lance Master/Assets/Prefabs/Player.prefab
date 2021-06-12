@@ -229,3 +229,4 @@ MonoBehaviour:
   drag: 40
   dashDamageDuration: 1
   dashInvinsibleDuration: 1
+  arrow: {fileID: 5428713666385280768, guid: d5878372e938e9943b42c193e0c62556, type: 3}
