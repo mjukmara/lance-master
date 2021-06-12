@@ -6,19 +6,29 @@ public class Weapon : MonoBehaviour {
     public float fireRate = 1f;
     public float reloadRate = 0.2f;
     public int magazineSize = 5;
-    public Queue<GameObject> magazineProjectiles;
+    public Magazine magazine;
 
     private bool trigger = false;
     private bool reloading = false;
     public float fireCooldown = 0f;
     public float reloadCooldown = 0f;
-    public GameObject projectilePrefab;
+
+    private void Awake() {
+
+    }
 
     private void Update() {
         fireCooldown = Mathf.Max(0, fireCooldown - Time.deltaTime);
-        reloadCooldown = Mathf.Max(0, reloadCooldown - Time.deltaTime);
 
-        if (IsTriggerDown() && !IsCooldown() && !IsMagazineEmpty()) {
+        if (IsReloading()) {
+            reloadCooldown = Mathf.Max(0, reloadCooldown - Time.deltaTime);
+            if (reloadCooldown == 0) {
+                magazine.Renew();
+                reloading = false;
+            }
+        } else if (magazine.IsEmpty()) {
+            Reload();
+        } else if (IsTriggerDown() && !IsCooldown()) {
             Fire();
         }
     }
@@ -29,13 +39,13 @@ public class Weapon : MonoBehaviour {
     }
 
     private void Fire() {
-        if (IsMagazineEmpty()) return;
+        if (magazine.IsEmpty()) return;
 
         SetCooldown(1f / fireRate);
 
-        if (projectilePrefab) {
-            GameObject projectile = Instantiate(PopProjectilePrefabFromMagazine(), transform.position, transform.rotation);
-        }
+        GameObject projectilePrefab = magazine.PopProjectile();
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        Debug.Log("Fire");
     }
 
     public void SetFireTrigger(bool pressed) {
@@ -57,11 +67,12 @@ public class Weapon : MonoBehaviour {
         fireCooldown = seconds;
     }
 
-    public bool IsMagazineEmpty() {
-        return magazineProjectiles.Count == 0;
+    public void Reload() {
+        reloadCooldown = 1f / reloadRate;
+        reloading = true;
     }
 
-    public GameObject PopProjectilePrefabFromMagazine() {
-        return magazineProjectiles.Dequeue();
+    public bool IsReloading() {
+        return reloading;
     }
 }
