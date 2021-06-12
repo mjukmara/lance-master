@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 9041167319513455534}
   - component: {fileID: 7248781906722084552}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: BurstWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,6 +129,7 @@ MonoBehaviour:
   fireRate: 4
   reloadRate: 0.5
   magazineSize: 5
+  inaccuracy: 6
   magazine:
     projectilePrefabs:
     - {fileID: 5428713666385280768, guid: d5878372e938e9943b42c193e0c62556, type: 3}
