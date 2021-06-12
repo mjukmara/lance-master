@@ -16,12 +16,16 @@ public class ArrowScript : MonoBehaviour
 	private Rigidbody2D rb;
 	private BoxCollider2D boxCollider2D;
 	private Vector2 playerPos;
+	private LineRenderer lr;
+	private GameObject player;
 
 	void Awake()
 	{
 		tr = GetComponent<Transform>();
 		rb = GetComponent<Rigidbody2D>();
 		boxCollider2D = GetComponent<BoxCollider2D>();
+		lr = GetComponent<LineRenderer>();
+		player = GameObject.FindGameObjectWithTag("Player");
 
 		boxCollider2D.enabled = false;
 		Destroy(gameObject, aliveTime);
@@ -40,9 +44,13 @@ public class ArrowScript : MonoBehaviour
 		if (!fired)
 		{
 			boxCollider2D.enabled = true;
-			rb.velocity = transform.right * speed;
 			fired = true;
 		}
+
+		Vector2 d = player.transform.position - tr.position;
+		float atp = Mathf.Atan2(d.y, d.x);
+
+		rb.velocity = transform.right * speed;
 	}
 
 	void OnCollisionEnter2D(Collision2D other)
