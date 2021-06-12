@@ -36,6 +36,7 @@ public class GroupManager : MonoBehaviour
 				Debug.Log("Open the door!");
 				GameObject door = gameObject.transform.Find("door").gameObject;
 				door.GetComponent<BoxCollider2D>().enabled = false;
+				door.GetComponent<DoorScript>().OpenDoor();
 			}
 		}
 	}
