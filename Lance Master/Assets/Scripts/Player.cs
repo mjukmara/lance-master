@@ -49,5 +49,8 @@ public class Player : MonoBehaviour
 		gameObject.transform.Find("DashTrail").gameObject.GetComponent<ParticleSystem>().Play();
 		float rz = Mathf.Atan2(cc.GetMoveDirection().y, cc.GetMoveDirection().x) * Mathf.Rad2Deg;
 		Instantiate(arrow, tr.position, Quaternion.AngleAxis(rz, Vector3.forward));
+
+		string[] dashSoundNames = new string[] { "dash1", "dash2", "dash3", "dash4", "dash5" };
+		AudioManager.Instance.PlaySfx(dashSoundNames[Random.Range(0, dashSoundNames.Length)]);
 	}
 }
