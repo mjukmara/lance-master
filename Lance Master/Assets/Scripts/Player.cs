@@ -79,12 +79,14 @@ public class Player : MonoBehaviour
 	{
 		health = Mathf.Max(0, health - damage);
 
-		string[] soundNames = new string[] { "ow1", "ow2", "ow3", "ow4", "ow5", "ow6" };
-		AudioManager.Instance.PlaySfx(soundNames[Random.Range(0, soundNames.Length)]);
 
-		if (health == 0)
-		{
+		if (health == 0) {
+			string[] soundNames = new string[] { "player-rip1", "player-rip2", "player-rip3", "player-rip4", "player-rip5", "player-rip6", "player-rip7", "player-rip8", "player-rip9" };
+			AudioManager.Instance.PlaySfx(soundNames[Random.Range(0, soundNames.Length)]);
 			Destroy(gameObject);
+		} else {
+			string[] soundNames = new string[] { "ow1", "ow2", "ow3", "ow4", "ow5", "ow6" };
+			AudioManager.Instance.PlaySfx(soundNames[Random.Range(0, soundNames.Length)]);
 		}
 	}
 }
