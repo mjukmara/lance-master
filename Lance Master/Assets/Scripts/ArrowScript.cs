@@ -8,6 +8,9 @@ public class ArrowScript : MonoBehaviour
 	public float delay;
 	public float aliveTime;
 	public GameObject PE_ArrowHit;
+	[Range(0.0f, 1.0f)]
+	public float attractionTime;
+	public float rotationSpeed;
 
 	private bool fired = false;
 	private float timer;
@@ -24,7 +27,7 @@ public class ArrowScript : MonoBehaviour
 		tr = GetComponent<Transform>();
 		rb = GetComponent<Rigidbody2D>();
 		boxCollider2D = GetComponent<BoxCollider2D>();
-		lr = GetComponent<LineRenderer>();
+		lr = gameObject.transform.Find("ArrowSprite").Find("Chain").GetComponent<LineRenderer>();
 		player = GameObject.FindGameObjectWithTag("Player");
 
 		boxCollider2D.enabled = false;
@@ -33,12 +36,19 @@ public class ArrowScript : MonoBehaviour
 
 	void Update()
 	{
-		if (timer < delay)
+		timer += Time.deltaTime;
+		if (timer < delay) { return; }
+
+		if (timer < delay + attractionTime)
 		{
-			timer += Time.deltaTime;
-			//float ratio = timer / delay;
-			//tr.position -= transform.right * ratio * Time.deltaTime * 10;
-			return;
+			lr.enabled = true;
+			Vector3 dir = player.transform.position - transform.position;
+			float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, angle), Time.deltaTime * rotationSpeed);
+		}
+		else
+		{
+			lr.enabled = false;
 		}
 
 		if (!fired)
@@ -47,9 +57,8 @@ public class ArrowScript : MonoBehaviour
 			fired = true;
 		}
 
-		Vector2 d = player.transform.position - tr.position;
-		float atp = Mathf.Atan2(d.y, d.x);
-
+		lr.SetPosition(0, tr.position);
+		lr.SetPosition(1, player.transform.position);
 		rb.velocity = transform.right * speed;
 	}
 
