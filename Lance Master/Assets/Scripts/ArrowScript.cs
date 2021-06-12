@@ -32,20 +32,22 @@ public class ArrowScript : MonoBehaviour
 		if (timer < delay)
 		{
 			timer += Time.deltaTime;
+			float ratio = timer / delay;
+			tr.position -= transform.right * ratio * Time.deltaTime * 10;
 			return;
 		}
 
 		if (!fired)
 		{
 			boxCollider2D.enabled = true;
-			rb.velocity = transform.right * speed * Time.deltaTime;
+			rb.velocity = transform.right * speed;
 			fired = true;
 		}
 	}
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.gameObject.tag != "Player")
+		if (other.gameObject.tag == "Player")
 		{
 			Instantiate(PE_ArrowHit, tr.position, Quaternion.identity);
 			Destroy(gameObject, 0);
