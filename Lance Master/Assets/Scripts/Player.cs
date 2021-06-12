@@ -6,8 +6,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 	public int health = 100;
-
+	public float dashInvinsibiltyDuration = 0.2f;
+	public float dashInvinsibiltyCooldown = 0f;
 	private CharacterController cc;
+	private CapsuleCollider2D capsuleCollider;
 	private Transform tr;
 	private Transform spritesTransform;
 	private Animator animator;
@@ -27,8 +29,10 @@ public class Player : MonoBehaviour
 	{
 		cc = GetComponent<CharacterController>();
 		tr = GetComponent<Transform>();
+
 		spritesTransform = gameObject.transform.Find("Sprites").GetComponent<Transform>();
 		animator = gameObject.transform.Find("Sprites").GetComponent<Animator>();
+		capsuleCollider = GetComponent<CapsuleCollider2D>();
 	}
 
 	private void Update()
@@ -45,6 +49,12 @@ public class Player : MonoBehaviour
 			spritesTransform.localScale = spriteScale;
 		}
 
+		dashInvinsibiltyCooldown = Mathf.Max(0, dashInvinsibiltyCooldown - Time.deltaTime);
+		if (dashInvinsibiltyCooldown == 0)
+		{
+			capsuleCollider.enabled = true;
+		}
+
 		if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("Fire1") || Input.GetButtonDown("Right Bumper"))
 		{
 			cc.SetDashInput(true);
@@ -53,6 +63,9 @@ public class Player : MonoBehaviour
 
 	public void OnDash()
 	{
+		dashInvinsibiltyCooldown = dashInvinsibiltyDuration;
+		capsuleCollider.enabled = false;
+
 		gameObject.transform.Find("DashTrail").gameObject.GetComponent<ParticleSystem>().Play();
 		float rz = Mathf.Atan2(cc.GetMoveDirection().y, cc.GetMoveDirection().x) * Mathf.Rad2Deg;
 		Instantiate(arrow, tr.position, Quaternion.AngleAxis(rz, Vector3.forward));

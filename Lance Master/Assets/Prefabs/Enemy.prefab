@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7966290567250394576}
   m_Layer: 11
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,6 +102,7 @@ MonoBehaviour:
   weaponPrefab: {fileID: 7248781906722084552, guid: 4481f98b71f8b464bbf54043b76abefa, type: 3}
   spass: 0.6
   deadZone: 0.1
+  chaseFactor: 0.5
 --- !u!1 &7881288478455225657
 GameObject:
   m_ObjectHideFlags: 0
