@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     private Vector2 targetDirection = Vector2.zero;
     private Vector2 perlinSeed;
 
-    private void Start() {
+    private void Awake() {
         cc = GetComponent<CharacterController>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         perlinSeed = new Vector2(Random.Range(0, 10000), Random.Range(0, 10000));

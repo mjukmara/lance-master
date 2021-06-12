@@ -17,7 +17,16 @@ public class Player : MonoBehaviour
 	private Transform tr;
 	public GameObject arrow;
 
-	private void Start()
+    private void OnEnable() {
+		cc.OnDashEvent += OnDash;
+
+	}
+
+    private void OnDisable() {
+		cc.OnDashEvent -= OnDash;
+	}
+
+    private void Awake()
 	{
 		cc = GetComponent<CharacterController>();
 		tr = GetComponent<Transform>();
@@ -30,9 +39,11 @@ public class Player : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("Fire1") || Input.GetButtonDown("Right Bumper"))
 		{
 			cc.SetDashInput(true);
-
-			float rz = Mathf.Atan2(cc.GetMoveDirection().y, cc.GetMoveDirection().x) * Mathf.Rad2Deg;
-			Instantiate(arrow, tr.position, Quaternion.AngleAxis(rz, Vector3.forward));
 		}
+	}
+
+	public void OnDash() {
+		float rz = Mathf.Atan2(cc.GetMoveDirection().y, cc.GetMoveDirection().x) * Mathf.Rad2Deg;
+		Instantiate(arrow, tr.position, Quaternion.AngleAxis(rz, Vector3.forward));
 	}
 }
