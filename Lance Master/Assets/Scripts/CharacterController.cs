@@ -5,10 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class CharacterController : MonoBehaviour
 {
-    private Rigidbody2D rb;
     public float drag = 40f;
     public float moveAcceleration = 4f;
-    Vector2 moveDirection = Vector2.zero;
+    public float dashForce = 5f;
+    private Rigidbody2D rb;
+    private Vector2 moveInput = Vector2.zero;
+    private Vector2 moveDirection = Vector2.zero;
+    private bool dashInput = false;
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -20,16 +23,30 @@ public class CharacterController : MonoBehaviour
 
     private void FixedUpdate() {
         Move();
+
+        if (dashInput) {
+            rb.AddForce(moveDirection * dashForce * 1000f);
+        }
+        dashInput = false;
     }
 
     private void Move() {
         Vector2 velocity = rb.velocity;
-        velocity += moveDirection * moveAcceleration;
+        velocity += moveInput * moveAcceleration;
         rb.velocity = velocity;
         rb.drag = drag;
     }
 
+    public void SetDashInput(bool dashInput) {
+        this.dashInput = dashInput;
+    }
+
     public void SetMoveInput(Vector2 axis) {
-        moveDirection = axis;
+        moveInput = axis;
+        moveDirection = moveInput.normalized;
+    }
+
+    public Vector2 GetMoveDirection() {
+        return moveDirection;
     }
 }
