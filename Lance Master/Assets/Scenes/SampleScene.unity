@@ -228,10 +228,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4866889531786242274, guid: f31978161c09378488555778deb77fce, type: 3}
-      propertyPath: m_SortingOrder
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f31978161c09378488555778deb77fce, type: 3}
 --- !u!1 &454705411
@@ -1818,7 +1814,7 @@ MonoBehaviour:
   m_RefResolutionX: 480
   m_RefResolutionY: 240
   m_UpscaleRT: 1
-  m_PixelSnapping: 0
+  m_PixelSnapping: 1
   m_CropFrameX: 1
   m_CropFrameY: 1
   m_StretchFill: 1

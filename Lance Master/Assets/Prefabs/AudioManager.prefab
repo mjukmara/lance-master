@@ -339,3 +339,39 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 950aeddad13708941afd4d2a465b5eb4, type: 3}
   - soundName: crunch1
     clip: {fileID: 8300000, guid: 766130b19866aef449909f5683ddd42e, type: 3}
+  - soundName: mob-rip1
+    clip: {fileID: 8300000, guid: bdcaa1083a38fee4b8ba86b552ca31ff, type: 3}
+  - soundName: mob-rip2
+    clip: {fileID: 8300000, guid: 846e08e42798e6345ae40f85c1ae0883, type: 3}
+  - soundName: mob-rip3
+    clip: {fileID: 8300000, guid: 4d882996c0699344b9b6a16b95745670, type: 3}
+  - soundName: mob-rip4
+    clip: {fileID: 8300000, guid: 6017fe127f23ba44aae454b8e52335d0, type: 3}
+  - soundName: mob-rip5
+    clip: {fileID: 8300000, guid: 7c5989e50cdbd0049b69cf7df61d8431, type: 3}
+  - soundName: mob-rip6
+    clip: {fileID: 8300000, guid: 27d4612adbda9e745a9523694effd849, type: 3}
+  - soundName: mob-rip7
+    clip: {fileID: 8300000, guid: 68444252234f8514a8791bcbcbf5e04d, type: 3}
+  - soundName: mob-rip8
+    clip: {fileID: 8300000, guid: 63532c3ff059b0745b6e42c39ee05b51, type: 3}
+  - soundName: mob-rip9
+    clip: {fileID: 8300000, guid: 8c2170e9cdbeece4c8b546f3b33adcae, type: 3}
+  - soundName: player-rip1
+    clip: {fileID: 8300000, guid: 592405cc3cd4e98449c47f4a6ac38c60, type: 3}
+  - soundName: player-rip2
+    clip: {fileID: 8300000, guid: 62406cbe9835a944490e9fb1a80b3460, type: 3}
+  - soundName: player-rip3
+    clip: {fileID: 8300000, guid: 993389c118cdae94c8cffac641d92123, type: 3}
+  - soundName: player-rip4
+    clip: {fileID: 8300000, guid: 243d82ea08f020c438957edf70e8b4cc, type: 3}
+  - soundName: player-rip5
+    clip: {fileID: 8300000, guid: eb4ef6b3625b5f543aaed7f584549090, type: 3}
+  - soundName: player-rip6
+    clip: {fileID: 8300000, guid: fc8927f25a469ce4fb4c264808127ad0, type: 3}
+  - soundName: player-rip7
+    clip: {fileID: 8300000, guid: f08e1d9be7f198a428130037415885a5, type: 3}
+  - soundName: player-rip8
+    clip: {fileID: 8300000, guid: bd6ea4d604bd1144ca4bc74fd31f1331, type: 3}
+  - soundName: player-rip9
+    clip: {fileID: 8300000, guid: 84c4b99ca15cc4743b57bd4fbd0f5f2a, type: 3}

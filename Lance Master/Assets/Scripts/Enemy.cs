@@ -70,8 +70,8 @@ public class Enemy : MonoBehaviour
     public void Hit(int damage) {
         health = Mathf.Max(0, health - damage);
 
-        //string[] soundNames = new string[] { "ow1", "ow2", "ow3", "ow4", "ow5", "ow6" };
-        //AudioManager.Instance.PlaySfx(soundNames[Random.Range(0, soundNames.Length)]);
+        string[] soundNames = new string[] { "mob-rip1", "mob-rip2", "mob-rip3", "mob-rip4", "mob-rip5", "mob-rip6", "mob-rip7", "mob-rip8", "mob-rip9" };
+        AudioManager.Instance.PlaySfx(soundNames[Random.Range(0, soundNames.Length)]);
 
         if (health == 0) {
             Destroy(gameObject);
