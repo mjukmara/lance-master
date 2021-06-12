@@ -17,16 +17,18 @@ public class Player : MonoBehaviour
 	private Transform tr;
 	public GameObject arrow;
 
-    private void OnEnable() {
+	private void OnEnable()
+	{
 		cc.OnDashEvent += OnDash;
 
 	}
 
-    private void OnDisable() {
+	private void OnDisable()
+	{
 		cc.OnDashEvent -= OnDash;
 	}
 
-    private void Awake()
+	private void Awake()
 	{
 		cc = GetComponent<CharacterController>();
 		tr = GetComponent<Transform>();
@@ -42,7 +44,9 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	public void OnDash() {
+	public void OnDash()
+	{
+		gameObject.transform.Find("DashTrail").gameObject.GetComponent<ParticleSystem>().Play();
 		float rz = Mathf.Atan2(cc.GetMoveDirection().y, cc.GetMoveDirection().x) * Mathf.Rad2Deg;
 		Instantiate(arrow, tr.position, Quaternion.AngleAxis(rz, Vector3.forward));
 	}
