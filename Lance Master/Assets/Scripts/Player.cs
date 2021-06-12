@@ -13,8 +13,10 @@ public class Player : MonoBehaviour
 	public float dashForce = 5f;
 	public float drag = 40f;
 	public float dashDamageDuration = 1f;
-	public float dashInvinsibleDuration = 1f;
+	public float dashInvinsibiltyDuration = 0.2f;
+	public float dashInvinsibiltyCooldown = 0f;
 	private CharacterController cc;
+	private CapsuleCollider2D capsuleCollider;
 	private Transform tr;
 	public GameObject arrow;
 
@@ -33,10 +35,16 @@ public class Player : MonoBehaviour
 	{
 		cc = GetComponent<CharacterController>();
 		tr = GetComponent<Transform>();
+		capsuleCollider = GetComponent<CapsuleCollider2D>();
 	}
 
 	private void Update()
 	{
+		dashInvinsibiltyCooldown = Mathf.Max(0, dashInvinsibiltyCooldown-Time.deltaTime);
+		if (dashInvinsibiltyCooldown == 0) {
+			capsuleCollider.enabled = true;
+		}
+
 		cc.SetMoveInput(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
 
 		if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("Fire1") || Input.GetButtonDown("Right Bumper"))
@@ -47,6 +55,9 @@ public class Player : MonoBehaviour
 
 	public void OnDash()
 	{
+		dashInvinsibiltyCooldown = dashInvinsibiltyDuration;
+		capsuleCollider.enabled = false;
+
 		gameObject.transform.Find("DashTrail").gameObject.GetComponent<ParticleSystem>().Play();
 		float rz = Mathf.Atan2(cc.GetMoveDirection().y, cc.GetMoveDirection().x) * Mathf.Rad2Deg;
 		Instantiate(arrow, tr.position, Quaternion.AngleAxis(rz, Vector3.forward));

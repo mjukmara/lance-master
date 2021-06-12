@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Enemy : MonoBehaviour
 {
+    public int health = 10;
     public Weapon weaponPrefab;
     public float spass = 0.6f;
     public float deadZone = 0.1f;
@@ -41,6 +42,11 @@ public class Enemy : MonoBehaviour
     }
 
     private void UpdateTargeting() {
+        if (!target) {
+            weapon.SetFireTrigger(false);
+            return;
+        }
+
         targetDistance = (target.position - transform.position).magnitude;
         targetDirection = (target.position - transform.position).normalized;
         if (weapon) {
@@ -60,5 +66,15 @@ public class Enemy : MonoBehaviour
         if (moveDir.magnitude < deadZone) moveDir = Vector2.zero;
 
         cc.SetMoveInput(moveDir);
+    }
+    public void Hit(int damage) {
+        health = Mathf.Max(0, health - damage);
+
+        //string[] soundNames = new string[] { "ow1", "ow2", "ow3", "ow4", "ow5", "ow6" };
+        //AudioManager.Instance.PlaySfx(soundNames[Random.Range(0, soundNames.Length)]);
+
+        if (health == 0) {
+            Destroy(gameObject);
+        }
     }
 }

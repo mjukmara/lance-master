@@ -5000,6 +5000,7 @@ Transform:
   - {fileID: 3351476973926793857}
   - {fileID: 150429113}
   - {fileID: 956145664150200273}
+  - {fileID: 2448589422419763282}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5051,6 +5052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62dca33eec3147f45a348e11b80bd82b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
   moveAcceleration: 4
   moveMaxSpeed: 0.5
   dashCooldown: 1
@@ -5058,7 +5060,8 @@ MonoBehaviour:
   dashForce: 5
   drag: 40
   dashDamageDuration: 1
-  dashInvinsibleDuration: 1
+  dashInvinsibiltyDuration: 0.2
+  dashInvinsibiltyCooldown: 0
   arrow: {fileID: 5428713666385280768, guid: d5878372e938e9943b42c193e0c62556, type: 3}
 --- !u!70 &4907303106152107246
 CapsuleCollider2D:
@@ -5076,3 +5079,64 @@ CapsuleCollider2D:
   m_Offset: {x: -0.077642806, y: 0.30482006}
   m_Size: {x: 0.5977725, y: 1.1495342}
   m_Direction: 0
+--- !u!1 &6202517658310187470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2448589422419763282}
+  - component: {fileID: 5663587462846302657}
+  - component: {fileID: 3471401179064984055}
+  m_Layer: 0
+  m_Name: DashDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2448589422419763282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6202517658310187470}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3351476975180991137}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &5663587462846302657
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6202517658310187470}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
+--- !u!114 &3471401179064984055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6202517658310187470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69d234ff75e45c44a8b61a2139ea839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
