@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public Weapon weaponPrefab;
     public float spass = 0.6f;
     public float deadZone = 0.1f;
+    public float chaseFactor = 0.5f;
     private CharacterController cc;
     private Transform target = null;
     private Vector2 targetDirection = Vector2.zero;
@@ -44,19 +45,23 @@ public class Enemy : MonoBehaviour
         float x = Mathf.PerlinNoise(perlinSeed.x + Time.time * spass, 0f);
         float y = Mathf.PerlinNoise(0f, perlinSeed.x + Time.time * spass);
 
-        if (x > 0.5f + deadZone) x = 1f;
-        else if (x < 0.5f - deadZone) x = 0f;
-        else x = 0.5f;
+        Vector2 moveDir = new Vector2(x, y);
 
-        if (y > 0.5f + deadZone) y = 1f;
-        else if (y < 0.5f - deadZone) y = 0f;
-        else y = 0.5f;
+        moveDir += targetDirection * chaseFactor;
 
-        x -= 0.5f;
-        y -= 0.5f;
-        x *= 2f;
-        y *= 2f;
+        if (moveDir.x > 0.5f + deadZone) moveDir.x = 1f;
+        else if (moveDir.x < 0.5f - deadZone) moveDir.x = 0f;
+        else moveDir.x = 0.5f;
 
-        cc.SetMoveInput(new Vector2(x, y));
+        if (moveDir.y > 0.5f + deadZone) moveDir.y = 1f;
+        else if (moveDir.y < 0.5f - deadZone) moveDir.y = 0f;
+        else moveDir.y = 0.5f;
+
+        moveDir.x -= 0.5f;
+        moveDir.y -= 0.5f;
+        moveDir.x *= 2f;
+        moveDir.y *= 2f;
+
+        cc.SetMoveInput(moveDir);
     }
 }

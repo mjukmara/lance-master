@@ -102,6 +102,7 @@ MonoBehaviour:
   weaponPrefab: {fileID: 7248781906722084552, guid: 4c58ec6b0bcb24f41935a9fe4d765ade, type: 3}
   spass: 0.6
   deadZone: 0.1
+  chaseFactor: 0.1
 --- !u!1 &7881288478455225657
 GameObject:
   m_ObjectHideFlags: 0
