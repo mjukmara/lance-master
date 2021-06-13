@@ -13,9 +13,15 @@ public class Lance : MonoBehaviour
 	private Vector2 direction = Vector2.zero;
 	private float flightTime = 0f;
 	public Animator playerTree;
+	private Transform spearTransform;
 
 	public delegate void OnLanceStoppedEventHandler(Lance lance);
 	public event OnLanceStoppedEventHandler OnLanceStoppedEvent;
+
+	private void Start()
+	{
+		spearTransform = gameObject.transform.Find("spear").transform;
+	}
 
 	private void FixedUpdate()
 	{
@@ -23,6 +29,8 @@ public class Lance : MonoBehaviour
 
 		if (IsFlying())
 		{
+			float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+			spearTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 			artPiece.SetActive(true);
 			playerTree.SetBool("Thrown", true);
 		}
