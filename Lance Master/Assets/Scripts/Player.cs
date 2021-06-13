@@ -62,15 +62,10 @@ public class Player : MonoBehaviour
 
 		if (!lance.IsFlying())
 		{
-			if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("Fire1") || Input.GetButtonDown("Right Bumper"))
-			{
-				cc.SetDashInput(true);
-			}
-
-			if (Input.GetKeyDown(KeyCode.Mouse1) || Input.GetButtonDown("Fire2") || Input.GetButtonDown("Left Bumper"))
-			{
+			if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("Fire1") || Input.GetButtonDown("Right Bumper")) {
 				if (!cc.dashing)
 				{
+					cc.SetDashInput(true);
 					Debug.Log("Throw lance");
 					lance.Throw(lanceThrowSpeed, input);
 				}
