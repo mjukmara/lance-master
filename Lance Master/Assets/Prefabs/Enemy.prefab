@@ -54,7 +54,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &5658430591032784516
 CapsuleCollider2D:
@@ -87,6 +87,8 @@ MonoBehaviour:
   drag: 40
   moveAcceleration: 4
   dashForce: 5
+  dashRate: 3
+  dashing: 0
 --- !u!114 &7966290567250394576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7b6ceedb4509a40ad83d9e91cd1200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 10
   weaponPrefab: {fileID: 7248781906722084552, guid: 4481f98b71f8b464bbf54043b76abefa, type: 3}
   spass: 0.6
   deadZone: 0.1

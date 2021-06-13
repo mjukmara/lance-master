@@ -21,7 +21,6 @@ public class Sfx : MonoBehaviour
         Sound s;
         soundByName.TryGetValue(soundName, out s);
         if (s != null) {
-            Debug.Log("Trying to play sound: " + soundName);
             audioSource.PlayOneShot(s.clip);
         }
     }

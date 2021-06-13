@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 	public float dashInvinsibiltyDuration = 0.2f;
 	public float dashInvinsibiltyCooldown = 0f;
 	private CharacterController cc;
-	private CapsuleCollider2D capsuleCollider;
+	public CapsuleCollider2D capsuleCollider;
 	private Transform tr;
 	private Transform spritesTransform;
 	private Animator animator;
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
 
 		spritesTransform = gameObject.transform.Find("Sprites").GetComponent<Transform>();
 		animator = gameObject.transform.Find("Sprites").GetComponent<Animator>();
-		capsuleCollider = GetComponent<CapsuleCollider2D>();
+		//capsuleCollider = GetComponent<CapsuleCollider2D>();
 	}
 
 	private void Update()
@@ -66,7 +66,6 @@ public class Player : MonoBehaviour
 				if (!cc.dashing)
 				{
 					cc.SetDashInput(true);
-					Debug.Log("Throw lance");
 					lance.Throw(lanceThrowSpeed, input);
 				}
 			}
@@ -107,7 +106,6 @@ public class Player : MonoBehaviour
 
 	public void OnLanceStopped(Lance lance)
 	{
-		Debug.Log("Lance stopped");
 		PickUpLance();
 	}
 

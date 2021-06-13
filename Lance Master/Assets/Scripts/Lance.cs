@@ -60,7 +60,7 @@ public class Lance : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		Debug.Log("Collision with: " + other);
+		Debug.Log("Lance collision with: " + other.gameObject.name);
 		Stop();
 
 		/*if (other.gameObject.tag == "Player") {

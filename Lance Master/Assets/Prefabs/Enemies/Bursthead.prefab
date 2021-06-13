@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7966290567250394576}
   - component: {fileID: 1379681474675284729}
   m_Layer: 11
-  m_Name: Sniperhead
+  m_Name: Bursthead
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &5658430591032784516
 CapsuleCollider2D:
@@ -89,6 +89,7 @@ MonoBehaviour:
   moveAcceleration: 2
   dashForce: 5
   dashRate: 3
+  dashing: 0
 --- !u!114 &7966290567250394576
 MonoBehaviour:
   m_ObjectHideFlags: 0
