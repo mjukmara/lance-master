@@ -21,8 +21,8 @@ TagManager:
   - Player
   - PlayerWallCollider
   - Lance
-  - 
-  - 
+  - PlayerEnemyCollider
+  - DashDamage
   - 
   - 
   - 
