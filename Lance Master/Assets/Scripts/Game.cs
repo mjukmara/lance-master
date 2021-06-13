@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
 
     public SpriteRenderer fader;
     public Transform respawnPoint;
+    public bool mainMenuPassed = false;
 
     void Awake() {
         if (_instance != null && _instance != this) {
