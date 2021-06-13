@@ -69,8 +69,11 @@ public class Player : MonoBehaviour
 
 			if (Input.GetKeyDown(KeyCode.Mouse1) || Input.GetButtonDown("Fire2") || Input.GetButtonDown("Left Bumper"))
 			{
-				Debug.Log("Throw lance");
-				lance.Throw(lanceThrowSpeed, input);
+				if (!cc.dashing)
+				{
+					Debug.Log("Throw lance");
+					lance.Throw(lanceThrowSpeed, input);
+				}
 			}
 		}
 	}
