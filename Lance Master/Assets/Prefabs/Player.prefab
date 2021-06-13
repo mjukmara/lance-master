@@ -5169,7 +5169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  dashInvinsibiltyDuration: 0.2
+  dashInvinsibiltyDuration: 0.4
   dashInvinsibiltyCooldown: 0
   capsuleCollider: {fileID: 6165367736374180395}
   playerWallCollider: {fileID: 6753194675904700545}

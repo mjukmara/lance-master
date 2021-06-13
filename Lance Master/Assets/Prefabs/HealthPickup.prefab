@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7696520993351702882}
   - component: {fileID: 8537778014517332201}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1698341571620140521}
   - component: {fileID: 3263765588900431558}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: HealthPickup
   m_TagString: HealthPickup
   m_Icon: {fileID: 0}
@@ -284,5 +284,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.38962317, y: 0.3624813}
   m_EdgeRadius: 0
