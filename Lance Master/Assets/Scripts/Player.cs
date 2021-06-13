@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 	public int health = 100;
-	public float dashInvinsibiltyDuration = 0.2f;
+	public float dashInvinsibiltyDuration = 0.4f;
 	public float dashInvinsibiltyCooldown = 0f;
 	private CharacterController cc;
 	private Rigidbody2D rb;
