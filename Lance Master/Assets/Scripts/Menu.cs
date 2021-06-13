@@ -33,6 +33,7 @@ public class Menu : MonoBehaviour
         started = true;
         Destroy(titleImage);
         Destroy(pressAnyKeyText);
+        yield return new WaitForSeconds(0.25f);
         yield return FadeOutBackdrop();
     }
 
