@@ -129,10 +129,12 @@ public class Player : MonoBehaviour
     }
 
 	void OnCollisionEnter2D(Collision2D other) {
-		if (other.gameObject.tag == "HealthPickup") {
-			health += 20;
-			AudioManager.Instance.PlaySfx("crunch1");
-			Destroy(other.gameObject);
+		if (health < 100) {
+			if (other.gameObject.tag == "HealthPickup") {
+				health += 20;
+				AudioManager.Instance.PlaySfx("crunch1");
+				Destroy(other.gameObject);
+			}
 		}
 	}
 }
