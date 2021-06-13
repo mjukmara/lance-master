@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 7966290567250394576}
   - component: {fileID: 4856685951725203688}
   m_Layer: 11
-  m_Name: Laserman
+  m_Name: Laserhead
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,7 +157,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &5658430591032784516
 CapsuleCollider2D:
@@ -172,7 +172,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.38}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!114 &5372044071003288131
@@ -191,6 +191,7 @@ MonoBehaviour:
   moveAcceleration: 4
   dashForce: 5
   dashRate: 3
+  dashing: 0
 --- !u!114 &7966290567250394576
 MonoBehaviour:
   m_ObjectHideFlags: 0

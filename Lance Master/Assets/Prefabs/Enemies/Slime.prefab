@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: 3653565059951292436}
   - component: {fileID: 3653565059951292437}
   - component: {fileID: -1547884886610494862}
+  - component: {fileID: 8641151509080617724}
   - component: {fileID: 8755016073652359103}
   - component: {fileID: 8777962695870843561}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Slime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,8 +125,24 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!58 &8641151509080617724
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3653565059951292442}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.5397358}
+  serializedVersion: 2
+  m_Radius: 0.9602642
 --- !u!114 &8755016073652359103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +159,7 @@ MonoBehaviour:
   moveAcceleration: 3
   dashForce: 5
   dashRate: 3
+  dashing: 0
 --- !u!114 &8777962695870843561
 MonoBehaviour:
   m_ObjectHideFlags: 0
