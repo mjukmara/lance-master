@@ -97,9 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18658e4e8ae8b9488cd402ef30d31d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
   speed: 6
   aliveTime: 2
-  PE_RedLaserHit: {fileID: 388459177441994925, guid: bcdd009eabab9c142b0123414272a1f8, type: 3}
+  hitEffect: {fileID: 388459177441994925, guid: 964e83d7df8ddc1499ee49b06f69d724, type: 3}
 --- !u!50 &3539933232413234611
 Rigidbody2D:
   serializedVersion: 4
