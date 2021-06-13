@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
 	public float dashInvinsibiltyDuration = 0.2f;
 	public float dashInvinsibiltyCooldown = 0f;
 	private CharacterController cc;
+	private Rigidbody2D rb;
 	public CapsuleCollider2D capsuleCollider;
+	public PlayerWallCollider playerWallCollider;
 	private Transform tr;
 	private Transform spritesTransform;
 	private Animator animator;
@@ -21,10 +23,11 @@ public class Player : MonoBehaviour
 	{
 		cc.OnDashEvent += OnDash;
 		lance.OnLanceStoppedEvent += OnLanceStopped;
+		playerWallCollider.OnWallCollisionEvent += OnWallCollision;
 	}
 
-	private void OnDisable()
-	{
+	private void OnDisable() {
+		playerWallCollider.OnWallCollisionEvent -= OnWallCollision;
 		lance.OnLanceStoppedEvent -= OnLanceStopped;
 		cc.OnDashEvent -= OnDash;
 	}
@@ -37,6 +40,7 @@ public class Player : MonoBehaviour
 		spritesTransform = gameObject.transform.Find("Sprites").GetComponent<Transform>();
 		animator = gameObject.transform.Find("Sprites").GetComponent<Animator>();
 		//capsuleCollider = GetComponent<CapsuleCollider2D>();
+		rb = GetComponent<Rigidbody2D>();
 	}
 
 	private void Update()
@@ -112,8 +116,15 @@ public class Player : MonoBehaviour
 	public void PickUpLance()
 	{
 		Vector3 lancePickupPos = lance.transform.position;
-		LeanTween.move(gameObject, lancePickupPos, 0.1f);
+		Vector3 dir = lancePickupPos - transform.position;
+		rb.AddForce(dir * 3000f);
+		//LeanTween.cancel(gameObject);
+		//LeanTween.move(gameObject, lancePickupPos, 0.1f);
 		lance.gameObject.transform.SetParent(transform);
 		lance.transform.localPosition = Vector3.zero;
 	}
+
+	public void OnWallCollision() {
+		//LeanTween.cancel(gameObject);
+    }
 }
