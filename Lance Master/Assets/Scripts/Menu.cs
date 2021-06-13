@@ -14,8 +14,14 @@ public class Menu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        backdropStartColor = backdropImage.color;
-        Tween();
+        if (Game.Instance.mainMenuPassed) {
+            Destroy(titleImage);
+            Destroy(pressAnyKeyText);
+            Destroy(backdropImage);
+        } else {
+            backdropStartColor = backdropImage.color;
+            Tween();
+        }
     }
 
     // Update is called once per frame
@@ -30,6 +36,7 @@ public class Menu : MonoBehaviour
     }
 
     public IEnumerator StartGame() {
+        Game.Instance.mainMenuPassed = true;
         started = true;
         Destroy(titleImage);
         Destroy(pressAnyKeyText);

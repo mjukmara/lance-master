@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 7930902752112213041, guid: 9b1ee5bf3541e7d4d8438aceee506bdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 3377263139528034821, guid: 3946397f04892d0488aada1a69692785, type: 3}
   shootEffect: {fileID: 388459177441994925, guid: 438e7902a651b484a95bb0c2384440c0, type: 3}
-  ammo: 3
+  ammo: 1
   eyeSpawn: 1
 --- !u!1 &4260996936327589058
 GameObject:

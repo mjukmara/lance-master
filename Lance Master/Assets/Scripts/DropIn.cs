@@ -23,5 +23,6 @@ public class DropIn : MonoBehaviour {
     public void Tween() {
         LeanTween.cancel(gameObject);
         LeanTween.move(artObject, finalPos, tweenTime + Random.Range(0, tweenTimeRandomness)).setEase(LeanTweenType.easeOutBounce);
+        AudioManager.Instance.PlaySfx("impact1");
     }
 }

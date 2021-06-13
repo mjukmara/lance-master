@@ -10,6 +10,8 @@ public class Game : MonoBehaviour
     public static Game Instance { get { return _instance; } }
 
     public SpriteRenderer fader;
+    public Transform respawnPoint;
+    public bool mainMenuPassed = false;
 
     void Awake() {
         if (_instance != null && _instance != this) {
@@ -25,7 +27,7 @@ public class Game : MonoBehaviour
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            LoadScene(0);
+            TransitionTo(0);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha9)) {
@@ -41,6 +43,12 @@ public class Game : MonoBehaviour
         yield return new WaitForSeconds(2f);
         yield return FadeOut();
         LoadScene(index);
+        yield return new WaitForSeconds(0.2f);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player) {
+            player.transform.position = respawnPoint.position;
+        }
+        yield return new WaitForSeconds(0.2f);
         yield return FadeIn();
     }
 
@@ -68,5 +76,9 @@ public class Game : MonoBehaviour
 
     public void FinishGame() {
         StartCoroutine(TransitionToScene(1));
+    }
+
+    public void SaveRespawnPoint(Transform point) {
+        respawnPoint = point;
     }
 }

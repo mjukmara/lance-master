@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef2a44d9ef2b104fac3bcd32aa8c9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  artObject: {fileID: 0}
+  artObject: {fileID: 1627700061916218477}
   verticalStartOffset: 10
   tweenTime: 0.5
   tweenTimeRandomness: 0.1
