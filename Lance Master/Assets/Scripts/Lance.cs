@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lance : MonoBehaviour {
+public class Lance : MonoBehaviour
+{
 
 	public float maxFlightTime = 0.5f;
 	public bool flying = false;
@@ -11,30 +12,38 @@ public class Lance : MonoBehaviour {
 	private float velocity = 1f;
 	private Vector2 direction = Vector2.zero;
 	private float flightTime = 0f;
+	public Animator playerTree;
 
 	public delegate void OnLanceStoppedEventHandler(Lance lance);
 	public event OnLanceStoppedEventHandler OnLanceStoppedEvent;
 
-	private void FixedUpdate() {
+	private void FixedUpdate()
+	{
 		flightTime += Time.deltaTime;
 
-		if (IsFlying()) {
+		if (IsFlying())
+		{
 			artPiece.SetActive(true);
-		} else {
+			playerTree.SetBool("Thrown", true);
+		}
+		else
+		{
 			artPiece.SetActive(false);
 		}
 
-		if (flying && !stopped && flightTime > maxFlightTime) {
+		if (flying && !stopped && flightTime > maxFlightTime)
+		{
 			Stop();
 			return;
 		}
 
 		Vector2 pos = new Vector2(transform.position.x, transform.position.y);
 		pos += direction.normalized * velocity * Time.deltaTime;
-        transform.position = pos;
+		transform.position = pos;
 	}
 
-	void OnCollisionEnter2D(Collision2D other) {
+	void OnCollisionEnter2D(Collision2D other)
+	{
 		Debug.Log("Collision with: " + other);
 		Stop();
 
@@ -47,14 +56,17 @@ public class Lance : MonoBehaviour {
 		}*/
 	}
 
-	public void Stop() {
+	public void Stop()
+	{
 		velocity = 0f;
 		flying = false;
 		stopped = true;
 		OnLanceStoppedEvent?.Invoke(this);
+		playerTree.SetBool("Thrown", false);
 	}
 
-	public void Throw(float speed, Vector2 direction) {
+	public void Throw(float speed, Vector2 direction)
+	{
 		velocity = speed;
 		this.direction = direction;
 		flightTime = 0f;
@@ -63,7 +75,8 @@ public class Lance : MonoBehaviour {
 		transform.SetParent(null);
 	}
 
-	public bool IsFlying() {
+	public bool IsFlying()
+	{
 		return flying && !stopped;
 	}
 }

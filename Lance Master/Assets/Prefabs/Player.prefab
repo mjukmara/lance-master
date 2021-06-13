@@ -264,7 +264,7 @@ MonoBehaviour:
   - {x: -0.19972631, y: -1.0247421, z: 0}
   m_ShapePathHash: -1570787201
   m_Mesh: {fileID: 0}
-  m_InstanceId: 42642
+  m_InstanceId: 65790
 --- !u!1 &1707225996722038763
 GameObject:
   m_ObjectHideFlags: 0
@@ -5171,6 +5171,7 @@ MonoBehaviour:
   dashInvinsibiltyCooldown: 0
   arrow: {fileID: 5428713666385280768, guid: d5878372e938e9943b42c193e0c62556, type: 3}
   lance: {fileID: 5581901558162809527}
+  lanceThrowSpeed: 20
 --- !u!70 &4907303106152107246
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5258,7 +5259,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 2470609439906444785, guid: fd51c481c51f1ee40a09d12c9c4656e4, type: 3}
+  m_Sprite: {fileID: 2253925394010548192, guid: fd51c481c51f1ee40a09d12c9c4656e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5511,6 +5512,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lance
       objectReference: {fileID: 0}
+    - target: {fileID: 6287809872002055721, guid: 277d0b5e4ab083c4390c40f6ae5c0252, type: 3}
+      propertyPath: playerTree
+      value: 
+      objectReference: {fileID: 1358625028}
     - target: {fileID: 6287809872002055724, guid: 277d0b5e4ab083c4390c40f6ae5c0252, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

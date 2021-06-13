@@ -84,7 +84,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -4788593416730567825, guid: fd51c481c51f1ee40a09d12c9c4656e4, type: 3}
+      value: {fileID: 9014353722260127931, guid: fd51c481c51f1ee40a09d12c9c4656e4, type: 3}
     attribute: m_Sprite
     path: Spear
     classID: 212
@@ -146,7 +146,7 @@ AnimationClip:
       customType: 4
       isPPtrCurve: 0
     pptrCurveMapping:
-    - {fileID: -4788593416730567825, guid: fd51c481c51f1ee40a09d12c9c4656e4, type: 3}
+    - {fileID: 9014353722260127931, guid: fd51c481c51f1ee40a09d12c9c4656e4, type: 3}
     - {fileID: -2352926469506328535, guid: 2da7377e4a2beea4dafcde4bfd6eb008, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
