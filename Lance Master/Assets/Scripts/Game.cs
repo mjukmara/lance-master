@@ -27,6 +27,10 @@ public class Game : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) {
             LoadScene(0);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha9)) {
+            FinishGame();
+        }
     }
 
     public void TransitionTo(int sceneIndex) {
@@ -60,5 +64,9 @@ public class Game : MonoBehaviour
 
     static void LoadScene(int index) {
         SceneManager.LoadScene(index);
+    }
+
+    public void FinishGame() {
+        StartCoroutine(TransitionToScene(1));
     }
 }
