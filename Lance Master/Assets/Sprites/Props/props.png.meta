@@ -74,6 +74,24 @@ TextureImporter:
   - first:
       213: 1756284534446157293
     second: props_painting_4
+  - first:
+      213: 8518954811034567692
+    second: props_bookshelf_1
+  - first:
+      213: -8778330639092187190
+    second: props_bookshelf_2
+  - first:
+      213: -1677439461080083856
+    second: props_bed
+  - first:
+      213: -4708704120845580051
+    second: props_plant_1
+  - first:
+      213: -2202906833347639133
+    second: props_plant_2
+  - first:
+      213: 2266321774201485983
+    second: props_standing_lantern
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -643,7 +661,7 @@ TextureImporter:
         width: 26
         height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -664,7 +682,7 @@ TextureImporter:
         width: 26
         height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -672,6 +690,132 @@ TextureImporter:
       bones: []
       spriteID: dedec289a739f5810800000000000000
       internalID: 1756284534446157293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props_bookshelf_1
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 293
+        width: 52
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c040259e348693670800000000000000
+      internalID: 8518954811034567692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props_bookshelf_2
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 254
+        width: 17
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acf7bf71bca1d2680800000000000000
+      internalID: -8778330639092187190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props_bed
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 368
+        width: 94
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 072591692b988b8e0800000000000000
+      internalID: -1677439461080083856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props_plant_1
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 445
+        width: 25
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de8c494cc8257aeb0800000000000000
+      internalID: -4708704120845580051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props_plant_2
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 445
+        width: 27
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a8880518e3bd61e0800000000000000
+      internalID: -2202906833347639133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props_standing_lantern
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 400
+        width: 9
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9a330a65a7937f10800000000000000
+      internalID: 2266321774201485983
       vertices: []
       indices: 
       edges: []
