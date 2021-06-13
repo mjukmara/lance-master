@@ -56,9 +56,12 @@ public class Player : MonoBehaviour
 			animator.SetBool("Dashing", false);
 		}
 
-		if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("Fire1") || Input.GetButtonDown("Right Bumper"))
-		{
+		if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("Fire1") || Input.GetButtonDown("Right Bumper")) {
 			cc.SetDashInput(true);
+		}
+
+		if (Input.GetKeyDown(KeyCode.Mouse1) || Input.GetButtonDown("Fire2") || Input.GetButtonDown("Left Bumper")) {
+			Debug.Log("Throw lance");
 		}
 	}
 
