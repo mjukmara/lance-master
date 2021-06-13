@@ -264,7 +264,7 @@ MonoBehaviour:
   - {x: -0.19972631, y: -1.0247421, z: 0}
   m_ShapePathHash: -1570787201
   m_Mesh: {fileID: 0}
-  m_InstanceId: 91166
+  m_InstanceId: 113980
 --- !u!1 &1707225996722038763
 GameObject:
   m_ObjectHideFlags: 0
@@ -5172,6 +5172,7 @@ MonoBehaviour:
   dashInvinsibiltyDuration: 0.2
   dashInvinsibiltyCooldown: 0
   capsuleCollider: {fileID: 6165367736374180395}
+  playerWallCollider: {fileID: 6753194675904700545}
   arrow: {fileID: 5428713666385280768, guid: d5878372e938e9943b42c193e0c62556, type: 3}
   lance: {fileID: 5581901558162809527}
   lanceThrowSpeed: 20
@@ -5330,6 +5331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6626509095374079660}
   - component: {fileID: 6722132517457924481}
+  - component: {fileID: 6753194675904700545}
   m_Layer: 13
   m_Name: WallCollider
   m_TagString: Untagged
@@ -5367,6 +5369,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.7}
   m_Size: {x: 0.9908513, y: 1.3827559}
   m_Direction: 0
+--- !u!114 &6753194675904700545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5402773602239885313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79786656a236fc04091ca8589d4c43d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6118823674996221526
 GameObject:
   m_ObjectHideFlags: 0
@@ -5612,11 +5626,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 277d0b5e4ab083c4390c40f6ae5c0252, type: 3}
---- !u!4 &5581901558162809522 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6287809872002055724, guid: 277d0b5e4ab083c4390c40f6ae5c0252, type: 3}
-  m_PrefabInstance: {fileID: 1888182690639649950}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5581901558162809527 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6287809872002055721, guid: 277d0b5e4ab083c4390c40f6ae5c0252, type: 3}
@@ -5628,3 +5637,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b965ed83220ec14cab27aaa2b0d6f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &5581901558162809522 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6287809872002055724, guid: 277d0b5e4ab083c4390c40f6ae5c0252, type: 3}
+  m_PrefabInstance: {fileID: 1888182690639649950}
+  m_PrefabAsset: {fileID: 0}
