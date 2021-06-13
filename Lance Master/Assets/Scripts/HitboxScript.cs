@@ -21,6 +21,8 @@ public class HitboxScript : MonoBehaviour
 		{
 			Instantiate(hitEffect, transform.position, Quaternion.identity);
 			Debug.Log("Hit with sword!");
+			Player player = other.gameObject.GetComponent<Player>();
+			player.Hit(10);
 		}
 	}
 }
