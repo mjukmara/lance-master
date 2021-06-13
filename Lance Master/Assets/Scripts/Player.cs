@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 	private CharacterController cc;
 	private Rigidbody2D rb;
 	public CapsuleCollider2D capsuleCollider;
+	public CapsuleCollider2D dashCollider;
 	public PlayerWallCollider playerWallCollider;
 	private Transform tr;
 	private Transform spritesTransform;
@@ -58,9 +59,9 @@ public class Player : MonoBehaviour
 		}
 
 		dashInvinsibiltyCooldown = Mathf.Max(0, dashInvinsibiltyCooldown - Time.deltaTime);
-		if (dashInvinsibiltyCooldown == 0)
-		{
+		if (dashInvinsibiltyCooldown == 0) {
 			capsuleCollider.enabled = true;
+			dashCollider.enabled = false;
 			animator.SetBool("Dashing", false);
 		}
 
@@ -80,6 +81,7 @@ public class Player : MonoBehaviour
 	{
 		dashInvinsibiltyCooldown = dashInvinsibiltyDuration;
 		capsuleCollider.enabled = false;
+		dashCollider.enabled = true;
 
 		gameObject.transform.Find("DashTrail").gameObject.GetComponent<ParticleSystem>().Play();
 		float rz = Mathf.Atan2(cc.GetMoveDirection().y, cc.GetMoveDirection().x) * Mathf.Rad2Deg;
