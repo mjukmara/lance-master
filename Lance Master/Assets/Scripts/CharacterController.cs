@@ -10,6 +10,7 @@ public class CharacterController : MonoBehaviour
 	public float moveAcceleration = 4f;
 	public float dashForce = 5f;
 	public float dashRate = 3f;
+	public bool dashing = false;
 
 	public delegate void OnDashEventHandler();
 	public event OnDashEventHandler OnDashEvent;
@@ -33,6 +34,8 @@ public class CharacterController : MonoBehaviour
 	private void FixedUpdate()
 	{
 		dashCooldown = Mathf.Max(0, dashCooldown - Time.deltaTime);
+		if (dashCooldown == 0.0f)
+			dashing = false;
 
 		HandleMovement();
 		HandleDashing();
@@ -53,6 +56,7 @@ public class CharacterController : MonoBehaviour
 			dashCooldown = 1f / dashRate;
 			rb.AddForce(moveDirection * dashForce * 1000f);
 			OnDashEvent?.Invoke();
+			dashing = true;
 		}
 		dashInput = false;
 	}
