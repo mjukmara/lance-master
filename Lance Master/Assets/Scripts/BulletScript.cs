@@ -10,7 +10,7 @@ public class BulletScript : MonoBehaviour
 
 	private Rigidbody2D rb;
 	private Transform tr;
-	public GameObject PE_RedLaserHit;
+	public GameObject hitEffect;
 
 
 	void Awake()
@@ -25,7 +25,7 @@ public class BulletScript : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			Instantiate(PE_RedLaserHit, tr.position, Quaternion.identity);
+			Instantiate(hitEffect, tr.position, Quaternion.identity);
 			Destroy(gameObject, 0);
 
 			Player playerScript = other.gameObject.GetComponent<Player>();
