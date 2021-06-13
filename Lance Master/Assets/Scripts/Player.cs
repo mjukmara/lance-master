@@ -17,12 +17,14 @@ public class Player : MonoBehaviour
 	public Lance lance;
 	public float lanceThrowSpeed = 20f;
 
-	private void OnEnable() {
+	private void OnEnable()
+	{
 		cc.OnDashEvent += OnDash;
 		lance.OnLanceStoppedEvent += OnLanceStopped;
 	}
 
-	private void OnDisable() {
+	private void OnDisable()
+	{
 		lance.OnLanceStoppedEvent -= OnLanceStopped;
 		cc.OnDashEvent -= OnDash;
 	}
@@ -58,12 +60,15 @@ public class Player : MonoBehaviour
 			animator.SetBool("Dashing", false);
 		}
 
-		if (!lance.IsFlying()) {
-			if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("Fire1") || Input.GetButtonDown("Right Bumper")) {
+		if (!lance.IsFlying())
+		{
+			if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("Fire1") || Input.GetButtonDown("Right Bumper"))
+			{
 				cc.SetDashInput(true);
 			}
 
-			if (Input.GetKeyDown(KeyCode.Mouse1) || Input.GetButtonDown("Fire2") || Input.GetButtonDown("Left Bumper")) {
+			if (Input.GetKeyDown(KeyCode.Mouse1) || Input.GetButtonDown("Fire2") || Input.GetButtonDown("Left Bumper"))
+			{
 				Debug.Log("Throw lance");
 				lance.Throw(lanceThrowSpeed, input);
 			}
@@ -88,23 +93,28 @@ public class Player : MonoBehaviour
 		health = Mathf.Max(0, health - damage);
 
 
-		if (health == 0) {
+		if (health == 0)
+		{
 			string[] soundNames = new string[] { "player-rip1", "player-rip2", "player-rip3", "player-rip4", "player-rip5", "player-rip6", "player-rip7", "player-rip8", "player-rip9" };
 			AudioManager.Instance.PlaySfx(soundNames[Random.Range(0, soundNames.Length)]);
 			Destroy(gameObject);
 			Game.Instance.TransitionTo(0);
-		} else {
+		}
+		else
+		{
 			string[] soundNames = new string[] { "ow1", "ow2", "ow3", "ow4", "ow5", "ow6" };
 			AudioManager.Instance.PlaySfx(soundNames[Random.Range(0, soundNames.Length)]);
 		}
 	}
 
-	public void OnLanceStopped(Lance lance) {
+	public void OnLanceStopped(Lance lance)
+	{
 		Debug.Log("Lance stopped");
 		PickUpLance();
 	}
 
-	public void PickUpLance() {
+	public void PickUpLance()
+	{
 		Vector3 lancePickupPos = lance.transform.position;
 		LeanTween.move(gameObject, lancePickupPos, 0.1f);
 		lance.gameObject.transform.SetParent(transform);
